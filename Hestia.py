@@ -44,7 +44,8 @@ from bs4 import BeautifulSoup
 import dns.resolver
 import whois
 import phonenumbers
-from phonenumbers import carrier, geocoder, timezone
+from phonenumbers import carrier, geocoder
+import phonenumbers.timezone as pn_timezone
 import exifread
 from PIL import Image, ExifTags
 import pandas as pd
