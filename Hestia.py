@@ -115,20 +115,10 @@ MAIN_BANNER = f"""
                          ██╔══██║██╔══╝  ╚════██║   ██║   ██║██╔══██║
                          ██║  ██║███████╗███████║   ██║   ██║██║  ██║
                          ╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝   ╚═╝╚═╝  ╚═╝
-
-                         ██╗  ██╗███████╗███████╗████████╗██╗ █████╗ 
-                         ██║  ██║██╔════╝██╔════╝╚══██╔══╝██║██╔══██╗
-                         ███████║█████╗  ███████╗   ██║   ██║███████║
-                         ██╔══██║██╔══╝  ╚════██║   ██║   ██║██╔══██║
-                         ██║  ██║███████╗███████║   ██║   ██║██║  ██║
-                         ╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝   ╚═╝╚═╝  ╚═╝
-
-                         Version 2.0-APOCALYPSE
               Predator Case Management & Evidence Automation
                    Protect the Vulnerable. Catch the Predators.
                               By - Phoenix/Minthol
 
-                「THE EYES THAT NEVER SLEEP - THE HUNT NEVER ENDS」
 {RESET}"""
 
 TACTICAL_BANNER = f"""
