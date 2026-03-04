@@ -183,7 +183,7 @@ class EvidenceItem:
         if not self.id:
             self.id = str(uuid.uuid4())
         if not self.timestamp_utc:
-            self.timestamp_utc = datetime.now(datetime.timezone.utc).isoformat()
+            self.timestamp_utc = datetime.now(timezone.utc)).isoformat()
         if self.content and not self.hash_sha256:
             self.hash_sha256 = hashlib.sha256(self.content.encode()).hexdigest()
         self._add_to_chain("Evidence created")
@@ -191,7 +191,7 @@ class EvidenceItem:
     def _add_to_chain(self, action: str):
         """Add an entry to the chain of custody."""
         self.chain_of_custody.append({
-            'timestamp': datetime.now(datetime.timezone.utc).isoformat(),
+            'timestamp': datetime.now(timezone.utc)).isoformat(),
             'action': action,
             'actor': 'Hestia System'
         })
@@ -230,8 +230,8 @@ class SuspectProfile:
         if not self.id:
             self.id = str(uuid.uuid4())
         if not self.created:
-            self.created = datetime.now(datetime.timezone.utc).isoformat()
-        self.updated = datetime.now(datetime.timezone.utc).isoformat()
+            self.created = datetime.now(timezone.utc)).isoformat()
+        self.updated = datetime.now(timezone.utc)).isoformat()
 
 @dataclass
 class Case:
@@ -265,25 +265,25 @@ class Case:
         if not self.case_id:
             self.case_id = f"CASE-{datetime.now().strftime('%Y%m%d')}-{random.randint(1000,9999)}"
         if not self.created:
-            self.created = datetime.now(datetime.timezone.utc).isoformat()
-        self.updated = datetime.now(datetime.timezone.utc).isoformat()
+            self.created = datetime.now(timezone.utc)).isoformat()
+        self.updated = datetime.now(timezone.utc)).isoformat()
     
     def add_evidence(self, evidence: EvidenceItem):
         """Add evidence to the case."""
         self.evidence[evidence.id] = evidence
         self._add_to_timeline(f"Evidence added: {evidence.type.value} from {evidence.source}")
-        self.updated = datetime.now(datetime.timezone.utc).isoformat()
+        self.updated = datetime.now(timezone.utc)).isoformat()
     
     def add_suspect(self, suspect: SuspectProfile):
         """Add a suspect to the case."""
         self.suspects.append(suspect)
         self._add_to_timeline(f"Suspect added: {suspect.primary_username}")
-        self.updated = datetime.now(datetime.timezone.utc).isoformat()
+        self.updated = datetime.now(timezone.utc)).isoformat()
     
     def _add_to_timeline(self, event: str):
         """Add an event to the case timeline."""
         self.timeline.append({
-            'timestamp': datetime.now(datetime.timezone.utc).isoformat(),
+            'timestamp': datetime.now(timezone.utc)).isoformat(),
             'event': event
         })
 
@@ -447,7 +447,7 @@ class DoxbinCollector(EvidenceCollector):
                         results.append({
                             'keyword': keyword,
                             'source': base_url,
-                            'timestamp': datetime.now(datetime.timezone.utc).isoformat(),
+                            'timestamp': datetime.now(timezone.utc)).isoformat(),
                             'content': response.text[:500]  # Preview
                         })
                 except Exception as e:
@@ -547,7 +547,7 @@ class SocialMediaCollector(EvidenceCollector):
             'platform': platform,
             'username': username,
             'url': f"{self.platforms.get(platform, '')}/{username}",
-            'collected': datetime.now(datetime.timezone.utc).isoformat()
+            'collected': datetime.now(timezone.utc)).isoformat()
         }
     
     def extract_posts(self, platform: str, username: str, max_posts: int = 50) -> List[Dict]:
@@ -822,7 +822,7 @@ class EvidencePackager:
         readme_content = f"""
 HESTIA INVESTIGATION PACKAGE
 Case ID: {case.case_id}
-Generated: {datetime.now(datetime.timezone.utc).isoformat()}
+Generated: {datetime.now(timezone.utc)).isoformat()}
 Jurisdiction: {case.jurisdiction.value}
 
 This package contains evidence collected during the investigation.
@@ -870,7 +870,7 @@ HESTIA OFFICIAL SUBMISSION FORM
 
 TO: {agency}
 FROM: Hestia Investigation System
-DATE: {datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}
+DATE: {datetime.now(timezone.utc)).strftime('%Y-%m-%d %H:%M:%S UTC')}
 CASE ID: {case.case_id}
 
 ===============================================================================
@@ -926,7 +926,7 @@ SUBMISSION DETAILS
 ===============================================================================
 
 Submitted by: Hestia System
-Submission Date: {datetime.now(datetime.timezone.utc).isoformat()}
+Submission Date: {datetime.now(timezone.utc)).isoformat()}
 Attached Evidence Package: {case.case_id}_package.zip
 PDF Report: {case.case_id}_report.pdf
 
