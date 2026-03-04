@@ -183,7 +183,7 @@ class EvidenceItem:
         if not self.id:
             self.id = str(uuid.uuid4())
         if not self.timestamp_utc:
-            self.timestamp_utc = datetime.now(timezone.utc)).isoformat()
+            self.timestamp_utc = datetime.now(timezone.utc).isoformat()
         if self.content and not self.hash_sha256:
             self.hash_sha256 = hashlib.sha256(self.content.encode()).hexdigest()
         self._add_to_chain("Evidence created")
