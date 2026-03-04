@@ -1873,7 +1873,7 @@ class Hestia:
             
             input(f"{Y}[+] Press Enter to continue...{RESET}")
     
-     def phone_dive_menu(self):
+    def phone_dive_menu(self):
         """Phone Deep Dive sub-menu - REAL phone intelligence gathering."""
         while True:
             self.clear_screen()
